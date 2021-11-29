@@ -40,22 +40,47 @@
         ],
     ];
 
-    foreach ($posts as $key => $value) {
-        echo "<h2>{$key}</h2>";
+    $keys = array_keys($posts);
 
-        for ($i=0; $i < count($value); $i++) {
-            $post = $value[$i];
+    for ($i=0; $i < count($keys); $i++) {
+        $date = $keys[$i];
 
+        echo "<h2>{$date}</h2>";
+
+        for ($j=0; $j < count($posts[$date]); $j++) {
+            $post = $posts[$date][$j];
+    
             echo "
                 <div>
                     <span>{$post['title']}</span>
+                    <br>
                     <span>Autore: {$post['author']}</span>
                     <br>
                     <span>Testo: {$post['text']}</span>
                 </div>
                 <br>
-            "; 
-        }
+            ";
+        };
     };
+
+
+    // foreach ($posts as $key => $value) {
+    //     echo "<h2>{$key}</h2>";
+
+    //     for ($i=0; $i < count($value); $i++) {
+    //         $post = $value[$i];
+
+    //         echo "
+    //             <div>
+    //                 <span>{$post['title']}</span>
+    //                 <br>
+    //                 <span>Autore: {$post['author']}</span>
+    //                 <br>
+    //                 <span>Testo: {$post['text']}</span>
+    //             </div>
+    //             <br>
+    //         "; 
+    //     }
+    // };
 
 ?>
